@@ -17,3 +17,5 @@ const operate = function(operator,a,b) {
       console.log("Invalid operator")
   }
 }
+
+const display = document.querySelector('.display');

@@ -35,7 +35,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 340px;
+  height: 400px;
   width: 280px;
   padding: 8px;
   border-style: solid;
@@ -63,10 +63,16 @@ body {
   gap: 4px;
 }
 
+.grid-item-clear,
+.grid-item-delete {
+  grid-column: span 2;
+}
+
 button {
   height: 64px;
   width: 64px;
-  border-radius: 20%;
+  text-align: center;
+  border-radius: 16px;
   transition-duration: 0.1s;
   color: white;
   background-color: #82b74b
@@ -75,6 +81,11 @@ button {
 button:hover {
   color: white;
   background-color: #68923b
+}
+
+#clear,
+#delete {
+  width: 140px;
 }
 
 .footer {
