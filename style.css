@@ -21,7 +21,9 @@ body {
   justify-content: center;
   text-align: center;
   font-size: 72px;
+  font-weight: bold;
   padding: 0.5em;
+  color: #405d27;
 }
 
 .main {
