@@ -1,1 +1,3 @@
-# odin-calculator
+# Calculator
+
+Calculator application, exercise for the Odin Project.
