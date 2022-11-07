@@ -125,13 +125,10 @@ opBtn.forEach((button) => {
 eqBtn.addEventListener('click', () => {
   if (selectedOperator && num1) {
     if (lastClick === "equals") {
-      performCalc();
-      num1 = parseFloat(display.textContent);
-    } else {
       num2 = parseFloat(display.textContent);
-      performCalc();
-      num1 = parseFloat(display.textContent);
     }
+    performCalc();
+    num1 = parseFloat(display.textContent);
   }
   lastClick = "equals";
 });
