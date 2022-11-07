@@ -79,18 +79,52 @@ button {
   text-align: center;
   border-radius: 16px;
   transition-duration: 0.1s;
-  color: white;
-  background-color: #82b74b
 }
 
-button:hover {
+
+.numBtn {
   color: white;
-  background-color: #68923b
+  background-color: #82b74b;
+}
+
+.numBtn:hover {
+  background-color: #68923b;
+}
+
+.opBtn,
+#dot,
+#equals {
+  color: black;
+  background-color: #e3eaa7;
+}
+
+.opBtn:hover,
+#dot:hover,
+#equals:hover {
+  background-color: #aeb481;
 }
 
 #clear,
 #delete {
   width: 140px;
+}
+
+#clear {
+  color: white;
+  background-color: #4c94d2;
+}
+
+#clear:hover {
+  background-color: #3b73a4;
+}
+
+#delete {
+  color: white;
+  background-color: #BC4749;
+}
+
+#delete:hover {
+  background-color: #913738;
 }
 
 .footer {
