@@ -69,10 +69,12 @@ const performCalc = () => {
   // Check if calculated value fits on display
   if (calculatedString.length < 13) {
     setDisplay(calculatedString); // Typical calculated value
-  } else if (Math.round(calculated) <= 9999999999999 && calculated >= 0.000000000001) {
+  } else if (Math.round(calculated) <= 9999999999999 && Math.round(calculated) > 0) {
     setDisplay(calculatedString.slice(0, 13)); // Calculated value with decimal points
+  } else if (calculated.toFixed(11) > 0.00000000001) {
+    setDisplay(calculated.toFixed(11));
   } else {
-    displayError();
+    setDisplay(0);
   }
 }
 
@@ -136,3 +138,8 @@ eqBtn.addEventListener('click', () => {
 // Set numbers and display on startup
 resetMemory();
 resetDisplay();
+
+// To fix:
+// equals button normal operation
+// scientific notation for small values
+// calculations with num1 = 0
