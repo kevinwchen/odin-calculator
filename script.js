@@ -14,7 +14,7 @@ const setDisplay = (value) => {
 
 const resetDisplay = () => {
   // Reset display screen
-  setDisplay(0);
+  setDisplay();
 }
 
 const pushDisplay = (value) => {
@@ -69,12 +69,12 @@ const performCalc = () => {
   // Check if calculated value fits on display
   if (calculatedString.length < 13) {
     setDisplay(calculatedString); // Typical calculated value
-  } else if (Math.round(calculated) <= 9999999999999 && Math.round(calculated) > 0) {
-    setDisplay(calculatedString.slice(0, 13)); // Calculated value with decimal points
-  } else if (calculated.toFixed(11) > 0.00000000001) {
+  } else if (Math.round(calculated) <= 999999999999 && Math.round(calculated) > 1) {
+    setDisplay(Math.round(calculated)); // Calculated value with decimal points
+  } else if (calculated < 1 && calculated.toFixed(11) > 0.00000000001) {
     setDisplay(calculated.toFixed(11));
   } else {
-    setDisplay(0);
+    setDisplay("overflow");
   }
 }
 
@@ -110,11 +110,10 @@ numBtn.forEach((button) => {
 // Operator button functionality
 opBtn.forEach((button) => {
   button.addEventListener('click', () => {
-    if (lastClick === "number" && num1) {
+    if (lastClick === "number" && num1 != undefined) {
       num2 = parseFloat(display.textContent);
       performCalc();
       num1 = parseFloat(display.textContent);
-      num2 = undefined;
     } else if (lastClick === "number") {
       num1 = parseFloat(display.textContent);
     }
@@ -125,9 +124,11 @@ opBtn.forEach((button) => {
 
 // Equals button functionality
 eqBtn.addEventListener('click', () => {
-  if (selectedOperator && num1) {
-    if (lastClick === "equals") {
+  if (selectedOperator && num1 != undefined) {
+    if (lastClick === "number") {
       num2 = parseFloat(display.textContent);
+    } else if (lastClick === "equals") {
+
     }
     performCalc();
     num1 = parseFloat(display.textContent);
@@ -138,8 +139,3 @@ eqBtn.addEventListener('click', () => {
 // Set numbers and display on startup
 resetMemory();
 resetDisplay();
-
-// To fix:
-// equals button normal operation
-// scientific notation for small values
-// calculations with num1 = 0
